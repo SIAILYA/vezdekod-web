@@ -1,3 +1,5 @@
+var formSubmitCount = 0
+
 function submitForm() {
     let name = $("#name-inp")
     let surname = $("#surname-inp")
@@ -33,16 +35,28 @@ function submitForm() {
     if (fields.every((val) => {
         return val[2] === true
     })) {
-        if (confirm("Форма заполнена верно! Скачать результаты в txt-файл?")) {
-            addMessage("Все окей!", "Данные успешно отправлены!", true)
-            downloadResults(name.val(), surname.val(), email.val(), company.val(), city.val(), message.val())
+        // if (confirm("Форма заполнена верно! Скачать результаты в txt-файл?")) {
+        //     downloadResults(name.val(), surname.val(), email.val(), company.val(), city.val(), message.val())
+        // }
+        formSubmitCount += 1
+        if (formSubmitCount % 2 === 0) {
+            addMessage("Упс...", "Форма отправлена " + formSubmitCount + " раз(а)!", false, true)
+        } else {
+            addMessage("Все окей!", "Данные успешно отправлены!", true, true)
         }
     } else {
-        addMessage("Что-то пошло не так", "В веденных данных найдена ошибка!", false)
+        addMessage("Что-то пошло не так", "В веденных данных найдена ошибка!", false, false)
     }
 }
 
-function downloadResults(name, surname, email, company, city, message) {
+function downloadResults() {
+    let name = $("#name-inp").val()
+    let surname = $("#surname-inp").val()
+    let email = $("#email-inp").val()
+    let company = $("#company-inp").val()
+    let city = $("#city-inp").val()
+    let message = $("#message-inp").val()
+
     let text = `Name: ${name}\nSurname: ${surname}\nEmail: ${email}\nCompany: ${company}\nCity: ${city}\nMessage: ${message}`;
     let csvData = 'data:application/txt;charset=utf-8,' + encodeURIComponent(text);
 
@@ -114,7 +128,8 @@ function switchLanguage(lngCode) {
 
 var messageID = 0
 
-function addMessage(header, text, positive) {
+function addMessage(header, text, positive, download) {
+
     messageID += 1
     let currentMsgID = messageID
 
@@ -122,6 +137,7 @@ function addMessage(header, text, positive) {
 <div class="w-50 feedback-message ${!positive ? 'feedback-negative' : ''}" id="msg-${messageID}">
     <h3>${header}</h3>
     <span>${text}</span>
+    ${download ? '<a onclick="downloadResults()" class="download-link">Скачать результаты txt-файлом</a>' : ""}
 </div>`)
 
     setTimeout(() => {

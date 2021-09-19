@@ -189,19 +189,19 @@ label {
 }
 
 #lng-ru{
-    background: url("/img/ru.png");
+    background: url("../img/ru.png");
     background-size: cover;
     background-position: center;
 }
 
 #lng-en{
-    background: url("/img/gb.png");
+    background: url("../img/gb.png");
     background-size: cover;
     background-position: center;
 }
 
 #lng-ar{
-    background: url("/img/ae.png");
+    background: url("../img/ae.png");
     background-size: cover;
     background-position: center;
 }
@@ -244,4 +244,15 @@ label {
         height: 90px;
         padding: 12px;
     }
+}
+
+.download-link{
+    text-decoration: underline;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.download-link:hover{
+    color: #1241b4;
 }
