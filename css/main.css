@@ -161,6 +161,11 @@ label {
     background-color: #118d10;
 }
 
+.submit-btn:focus{
+    outline: none;
+    box-shadow: 0 0 5px 5px rgba(98, 201, 63, .4);
+}
+
 .language-switcher{
     justify-content: center;
     padding-bottom: 20px;
@@ -183,9 +188,10 @@ label {
     opacity: 0.5;
 }
 
-.lang-switch:hover{
+.lang-switch:hover, .lang-switch:focus{
     transform: scale(1.1);
     opacity: 0.8;
+    outline: none;
 }
 
 #lng-ru{
