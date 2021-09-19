@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Вездекод: Веб-разработка | FTIT</title>
+    <meta content="" name="description">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
+</head>
+
+<body>
+<div class="container">
+    <h1 class="text-center" id="tr-header">Форма для Вездекода</h1>
+    <div class="d-flex language-switcher">
+        <button onclick="switchLanguage('ru')" class="lang-switch active" id="lng-ru">
+            Ru
+        </button>
+        <button onclick="switchLanguage('en')" class="lang-switch" id="lng-en">
+            En
+        </button>
+        <button onclick="switchLanguage('ar')" class="lang-switch" id="lng-ar">
+            Ar
+        </button>
+    </div>
+    <form class="px-3">
+        <div class="d-flex flex-wrap">
+            <div class="form-group col-lg-5 col-10 d-flex">
+                <label for="name-inp" class="col-3">
+                    <span id="tr-name">Имя</span>
+                    <span class="required-inp">*</span>
+                </label>
+                <input type="text" id="name-inp" class="form-input w-100">
+            </div>
+            <div class="form-group col-lg-5 col-10 d-flex">
+                <label for="surname-inp" class="col-3">
+                    <span id="tr-surname">Фамилия</span>
+                    <span class="required-inp">*</span>
+                </label>
+                <input type="text" id="surname-inp" class="form-input w-100">
+            </div>
+        </div>
+        <div class="form-group col-10 d-flex">
+            <label for="email-inp" class="col-lg-2 col-3">
+                <span id="tr-email">Почта</span>
+                <span class="required-inp">*</span>
+            </label>
+            <input type="text" id="email-inp" class="form-input w-100">
+        </div>
+        <div class="form-group col-10 d-flex">
+            <label for="company-inp" class="col-lg-2 col-3">
+                <span id="tr-company">Компания</span>
+                <span class="required-inp">*</span>
+            </label>
+            <input type="text" id="company-inp" class="form-input w-100">
+        </div>
+        <div class="form-group col-10 d-flex">
+            <label for="city-inp" class="col-lg-2 col-3">
+                <span id="tr-city">Город</span>
+                <span class="required-inp">*</span>
+            </label>
+            <input type="text" id="city-inp" class="form-input w-100">
+        </div>
+        <div class="form-group col-10 d-flex">
+            <label for="message-inp" class="col-lg-2 col-3">
+                <span id="tr-msg">Сообщение</span>
+                <span class="required-inp">*</span>
+            </label>
+            <textarea type="text" id="message-inp" class="form-input w-100"></textarea>
+        </div>
+        <div class="d-flex" id="submit-box">
+            <button type="button" onclick="submitForm()" class="mx-auto submit-btn" id="submit-form">
+                <span id="tr-submit">Отправить</span>
+            </button>
+        </div>
+    </form>
+    <div id="form-feedback" class="d-flex flex-column form-feedback">
+
+    </div>
+</div>
+
+<script crossorigin="anonymous"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/translation.js"></script>
+</body>
+
+</html>
